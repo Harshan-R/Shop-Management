@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H E R O  Stylus</title>
+    <link rel="stylesheet" href="home.css" />
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      .pen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .pen img {
+        width: 100px;
+        height: 100px;
+      }
+      .pen .stock-status {
+        color: green;
+      }
+      .pen .stock-status.low {
+        color: orange;
+      }
+      .pen .stock-status.out {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>H E R O  Stylus</h1>
+    <div class="container">
+      <!-- Pen items -->
+      <div class="pen" id="pen1">
+        <img src="ballpen.jpg" alt="Ball Pen" />
+        <h2>Ball Pen</h2>
+        <p class="price">Rs.150</p>
+        <p class="stock-management">
+          <label for="stock1">Stock:</label>
+          <input type="number" id="stock1" value="10" min="0" />
+        </p>
+        <p class="stock-status">In Stock</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="pen" id="pen2">
+        <img src="gelpen.jpg" alt="Roller Ball Pen" />
+        <h2>Roll Pen</h2>
+        <p class="price">Rs.60</p>
+        <p class="stock-management">
+          <label for="stock2">Stock:</label>
+          <input type="number" id="stock2" value="10" min="0" />
+        </p>
+        <p class="stock-status">In Stock</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="pen" id="pen3">
+        <img src="fountainpen.jpg" alt="Fountain Pen" />
+        <h2>Ink Pen</h2>
+        <p class="price">Rs. 480</p>
+        <p class="stock-management">
+          <label for="stock3">Stock:</label>
+          <input type="number" id="stock3" value="10" min="0" />
+        </p>
+        <p class="stock-status">In Stock</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="pen" id="pen4">
+        <img src="gelpen.jpg" alt="Gel Pen" />
+        <h2>Gel Pen</h2>
+        <p class="price">Rs. 120</p>
+        <p class="stock-management">
+          <label for="stock4">Stock:</label>
+          <input type="number" id="stock4" value="10" min="0" />
+        </p>
+        <p class="stock-status">In Stock</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="pen" id="pen5">
+        <img src="clickerpen.jpg" alt="Clicker Pen" />
+        <h2>Clic Pen</h2>
+        <p class="price">Rs. 30</p>
+        <p class="stock-management">
+          <label for="stock5">Stock:</label>
+          <input type="number" id="stock5" value="10" min="0" />
+        </p>
+        <p class="stock-status">In Stock</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <!-- Add more pen items here -->
+    </div>
+    <div class="cart neomorphic-theme">
+      <h2>Cart</h2>
+      <ul id="cartItems">
+        <!-- Cart items will be added here -->
+      </ul>
+      <button id="checkout" class="neomorphic-theme">Checkout</button>
+    </div>
+    <script>
+      const pens = [
+        { id: "1", name: "Ball Pen", price: 150, stock: 10 },
+        { id: "2", name: "Roll Pen", price: 60, stock: 10 },
+        { id: "3", name: "Ink Pen", price: 480, stock: 10 },
+        { id: "4", name: "Gel Pen", price: 120, stock: 10 },
+        { id: "5", name: "Clik Pen", price: 30, stock: 10 },
+        // Add more pen items here
+      ];
+
+      const cartItems = document.getElementById("cartItems");
+
+      function addToCart(pen) {
+        const existingItem = Array.from(cartItems.children).find(
+          (item) => item.dataset.penId === pen.id
+        );
+        if (existingItem) {
+          const quantity = parseInt(
+            existingItem.querySelector("span").textContent
+          );
+          if (quantity < pen.stock) {
+            existingItem.querySelector("span").textContent = quantity + 1;
+            pen.stock--;
+            updateStockStatus(pen);
+          } else {
+            alert(`Only ${pen.stock} ${pen.name} left in stock.`);
+          }
+        } else {
+          const cartItem = document.createElement("li");
+          cartItem.dataset.penId = pen.id;
+          cartItem.textContent = `${pen.name} - Rs. ${pen.price} `;
+          const quantitySpan = document.createElement("span");
+          quantitySpan.textContent = "1";
+          cartItem.appendChild(document.createTextNode("  "));
+          cartItem.appendChild(quantitySpan);
+          
+          const removeButton = document.createElement("button");
+          removeButton.textContent = "Remove";
+          removeButton.addEventListener("click", () => {
+            cartItems.removeChild(cartItem);
+            pen.stock++;
+            updateStockStatus(pen);
+          });
+          cartItem.appendChild(removeButton);
+          cartItems.appendChild(cartItem);
+          pen.stock--;
+          updateStockStatus(pen);
+        }
+      }
+
+      function updateCart() {
+        const cartItems = document.getElementById("cartItems");
+        while (cartItems.firstChild) {
+          cartItems.removeChild(cartItems.firstChild);
+        }
+      }
+
+      function updateStockStatus(pen) {
+        const stockStatus = document.querySelector(
+          `#pen${pen.id} .stock-status`
+        );
+        if (pen.stock === 0) {
+          stockStatus.innerText = "Out of Stock";
+          stockStatus.classList.remove("low");
+          stockStatus.classList.add("out");
+        } else if (pen.stock < 5) {
+          stockStatus.innerText = "Low Stock";
+          stockStatus.classList.remove("out");
+          stockStatus.classList.add("low");
+        } else {
+          stockStatus.innerText = "In Stock";
+          stockStatus.classList.remove("low");
+          stockStatus.classList.remove("out");
+        }
+      }
+
+      pens.forEach((pen) => {
+        const penElement = document.getElementById(`pen${pen.id}`);
+        const addToCartButton = penElement.querySelector(".add-to-cart");
+        const stockInput = penElement.querySelector("input");
+        addToCartButton.addEventListener("click", () => {
+          addToCart(pen);
+        });
+        stockInput.addEventListener("change", () => {
+          pen.stock = parseInt(stockInput.value);
+          updateStockStatus(pen);
+        });
+      });
+
+      const quantityInputs = document.querySelectorAll(
+        '.quantity input[type="number"]'
+      );
+
+      quantityInputs.forEach((input) => {
+        input.addEventListener("change", () => {
+          const priceElement = input.closest("li").querySelector(".price");
+          const price = parseFloat(priceElement.textContent.replace("Rs.", ""));
+          const quantity = input.value;
+          const total = price * quantity;
+          priceElement.textContent = `$${total.toFixed(2)}`;
+        });
+      });
+
+      const checkoutButton = document.getElementById("checkout");
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      checkoutButton.addEventListener("click", () => {
+        window.location.href = "Payment.html";
+      });
+    </script>
+    
+  </body>
+</html>
