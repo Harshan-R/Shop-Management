@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pen Shopping - Login/Sign Up</title>
+    <style>
+      /* Apple-themed design styles */
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Helvetica Neue", sans-serif;
+        background-color: #f5f5f7;
+      }
+      .logo-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .logo-img {
+        max-width: 200px; /* Adjust the max-width as needed */
+        height: auto;
+      }
+
+      .container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 320px;
+        max-width: 90%;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333333;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      button {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        background-color: #f9f9f9;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .error-msg {
+        color: #ff4444;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .toggle-btn {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #555555;
+      }
+
+      .toggle-btn a {
+        color: #007bff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo-container">
+      <img src="brandLogo.png" alt="Logo" class="logo-img" />
+    </div>
+    <div class="container">
+      <div id="loginFormDiv">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input
+            type="text"
+            id="loginUsername"
+            placeholder="Username"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+            required
+          />
+          <div class="error-msg" id="loginErrorMsg"></div>
+          <button type="submit">Login</button>
+        </form>
+        <div class="toggle-btn">
+          Don't have an account?
+          <a href="#" onclick="toggleForm('signupFormDiv')">Sign Up</a>
+        </div>
+      </div>
+      <div id="signupFormDiv" style="display: none">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupUsername"
+            placeholder="Username"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Password"
+            required
+          />
+          <div class="error-msg" id="signupErrorMsg"></div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <div class="toggle-btn">
+          Already have an account?
+          <a href="#" onclick="toggleForm('loginFormDiv')">Login</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      // JSON data for valid logins
+      const validLogins = {
+        admin: "adminpassword",
+        customer: "customerpassword",
+      };
+
+      function toggleForm(formId) {
+        document.getElementById("loginErrorMsg").textContent = "";
+        document.getElementById("signupErrorMsg").textContent = "";
+        document.getElementById("loginFormDiv").style.display =
+          formId === "loginFormDiv" ? "block" : "none";
+        document.getElementById("signupFormDiv").style.display =
+          formId === "signupFormDiv" ? "block" : "none";
+      }
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("loginUsername").value;
+          const password = document.getElementById("loginPassword").value;
+          const errorMsg = document.getElementById("loginErrorMsg");
+          errorMsg.textContent = "";
+
+          if (
+            validLogins.hasOwnProperty(username) &&
+            validLogins[username] === password
+          ) {
+            if (username === "admin") {
+              window.location.href = "AdminHomePage.html";
+            } else {
+              window.location.href = "HomePage.html";
+            }
+          } else {
+            errorMsg.textContent = "Invalid username or password";
+          }
+        });
+
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("signupUsername").value;
+          const password = document.getElementById("signupPassword").value;
+          const errorMsg = document.getElementById("signupErrorMsg");
+          errorMsg.textContent = "";
+
+          // Here you can add code to handle sign up, such as sending data to a server
+          // For demonstration purposes, let's just log the data
+          console.log("Sign Up Data:", { username, password });
+          alert("Sign Up Successful!");
+
+          // After sign up, toggle back to the login form
+          toggleForm("loginFormDiv");
+        });
+    </script>
+  </body>
+</html>

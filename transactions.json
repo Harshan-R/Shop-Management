@@ -1,0 +1,294 @@
+{
+  "transactions": [
+    {
+      "transactionId": "TR001",
+      "customerId": "C001",
+      "products": [
+        {
+          "productId": 1,
+          "productName": "Hero Classic Black Pen",
+          "quantity": 3
+        },
+        {
+          "productId": 5,
+          "productName": "Hero Fine Liner Pen Set",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 10,
+      "grandTotal": 24.56,
+      "transactionDate": "2024-03-15"
+    },
+    {
+      "transactionId": "TR002",
+      "customerId": "C002",
+      "products": [
+        {
+          "productId": 2,
+          "productName": "Hero Gel Ink Pen - Blue",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 5,
+      "grandTotal": 6.63,
+      "transactionDate": "2024-03-16"
+    },
+    {
+      "transactionId": "TR003",
+      "customerId": "C003",
+      "products": [
+        {
+          "productId": 8,
+          "productName": "Hero Calligraphy Pen Set",
+          "quantity": 1
+        },
+        {
+          "productId": 10,
+          "productName": "Hero Highlighter Pen Set",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 15,
+      "grandTotal": 31.41,
+      "transactionDate": "2024-03-17"
+    },
+    {
+      "transactionId": "TR004",
+      "customerId": "C004",
+      "products": [
+        {
+          "productId": 3,
+          "productName": "Hero Executive Fountain Pen",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 0,
+      "grandTotal": 19.99,
+      "transactionDate": "2024-03-17"
+    },
+    {
+      "transactionId": "TR005",
+      "customerId": "C005",
+      "products": [
+        {
+          "productId": 12,
+          "productName": "Hero Kids' Drawing Pen Set",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 8,
+      "grandTotal": 6.43,
+      "transactionDate": "2024-03-18"
+    },
+    {
+      "transactionId": "TR006",
+      "customerId": "C006",
+      "products": [
+        {
+          "productId": 9,
+          "productName": "Hero Sketching Pen - Fine Tip",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 12,
+      "grandTotal": 14.07,
+      "transactionDate": "2024-03-19"
+    },
+    {
+      "transactionId": "TR007",
+      "customerId": "C007",
+      "products": [
+        {
+          "productId": 14,
+          "productName": "Hero Magnetic Cap Rollerball Pen",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 5,
+      "grandTotal": 10.92,
+      "transactionDate": "2024-03-20"
+    },
+    {
+      "transactionId": "TR008",
+      "customerId": "C008",
+      "products": [
+        {
+          "productId": 6,
+          "productName": "Hero Eco-Friendly Ballpoint Pen",
+          "quantity": 4
+        }
+      ],
+      "discountPercentage": 20,
+      "grandTotal": 13.6,
+      "transactionDate": "2024-03-21"
+    },
+    {
+      "transactionId": "TR009",
+      "customerId": "C009",
+      "products": [
+        {
+          "productId": 16,
+          "productName": "Hero Retro Fountain Pen",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 0,
+      "grandTotal": 22.49,
+      "transactionDate": "2024-03-22"
+    },
+    {
+      "transactionId": "TR010",
+      "customerId": "C010",
+      "products": [
+        {
+          "productId": 11,
+          "productName": "Hero Bold Marker Pen - Red",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 10,
+      "grandTotal": 8.98,
+      "transactionDate": "2024-03-23"
+    },
+    {
+      "transactionId": "TR011",
+      "customerId": "C011",
+      "products": [
+        {
+          "productId": 4,
+          "productName": "Hero Metallic Rollerball Pen",
+          "quantity": 3
+        }
+      ],
+      "discountPercentage": 0,
+      "grandTotal": 26.37,
+      "transactionDate": "2024-03-24"
+    },
+    {
+      "transactionId": "TR012",
+      "customerId": "C012",
+      "products": [
+        {
+          "productId": 20,
+          "productName": "Hero Retractable Ballpoint Pen",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 8,
+      "grandTotal": 11.9,
+      "transactionDate": "2024-03-25"
+    },
+    {
+      "transactionId": "TR013",
+      "customerId": "C013",
+      "products": [
+        {
+          "productId": 15,
+          "productName": "Hero Artist's Sketch Pen - Set of 6",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 15,
+      "grandTotal": 13.59,
+      "transactionDate": "2024-03-26"
+    },
+    {
+      "transactionId": "TR014",
+      "customerId": "C014",
+      "products": [
+        {
+          "productId": 17,
+          "productName": "Hero Compact Travel Pen",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 5,
+      "grandTotal": 17.08,
+      "transactionDate": "2024-03-27"
+    },
+    {
+      "transactionId": "TR015",
+      "customerId": "C015",
+      "products": [
+        {
+          "productId": 19,
+          "productName": "Hero Dual-Tip Marker Set",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 12,
+      "grandTotal": 9.67,
+      "transactionDate": "2024-03-28"
+    },
+    {
+      "transactionId": "TR016",
+      "customerId": "C016",
+      "products": [
+        {
+          "productId": 7,
+          "productName": "Hero Luxury Rollerball Pen - Gold",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 10,
+      "grandTotal": 22.49,
+      "transactionDate": "2024-03-29"
+    },
+    {
+      "transactionId": "TR017",
+      "customerId": "C017",
+      "products": [
+        {
+          "productId": 13,
+          "productName": "Hero Refillable Ink Pen",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 8,
+      "grandTotal": 5.51,
+      "transactionDate": "2024-03-30"
+    },
+    {
+      "transactionId": "TR018",
+      "customerId": "C018",
+      "products": [
+        {
+          "productId": 18,
+          "productName": "Hero Premium Rollerball Pen - Silver",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 0,
+      "grandTotal": 17.99,
+      "transactionDate": "2024-03-31"
+    },
+    {
+      "transactionId": "TR019",
+      "customerId": "C019",
+      "products": [
+        {
+          "productId": 1,
+          "productName": "Hero Classic Black Pen",
+          "quantity": 1
+        }
+      ],
+      "discountPercentage": 5,
+      "grandTotal": 5.69,
+      "transactionDate": "2024-04-01"
+    },
+    {
+      "transactionId": "TR020",
+      "customerId": "C020",
+      "products": [
+        {
+          "productId": 5,
+          "productName": "Hero Fine Liner Pen Set",
+          "quantity": 2
+        }
+      ],
+      "discountPercentage": 10,
+      "grandTotal": 23.38,
+      "transactionDate": "2024-04-02"
+    }
+  ]
+}

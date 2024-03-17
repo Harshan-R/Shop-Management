@@ -1,0 +1,184 @@
+{
+  "pens": [
+    {
+      "id": 1,
+      "name": "Hero Classic Black Pen",
+      "price": 5.99,
+      "stock": 15,
+      "color": "Black",
+      "type": "Ballpoint",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Hero Gel Ink Pen - Blue",
+      "price": 3.49,
+      "stock": 8,
+      "color": "Blue",
+      "type": "Gel Ink",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Hero Executive Fountain Pen",
+      "price": 19.99,
+      "stock": 3,
+      "color": "Black",
+      "type": "Fountain",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Hero Metallic Rollerball Pen",
+      "price": 8.79,
+      "stock": 12,
+      "color": "Silver",
+      "type": "Rollerball",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Hero Fine Liner Pen Set",
+      "price": 12.99,
+      "stock": 5,
+      "color": "Assorted",
+      "type": "Fine Liner",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Hero Eco-Friendly Ballpoint Pen",
+      "price": 4.25,
+      "stock": 20,
+      "color": "Green",
+      "type": "Ballpoint",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Hero Luxury Rollerball Pen - Gold",
+      "price": 24.99,
+      "stock": 2,
+      "color": "Gold",
+      "type": "Rollerball",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Hero Calligraphy Pen Set",
+      "price": 29.99,
+      "stock": 10,
+      "color": "Assorted",
+      "type": "Calligraphy",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Hero Sketching Pen - Fine Tip",
+      "price": 7.99,
+      "stock": 6,
+      "color": "Black",
+      "type": "Sketching",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Hero Highlighter Pen Set",
+      "price": 9.49,
+      "stock": 4,
+      "color": "Assorted",
+      "type": "Highlighter",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Hero Bold Marker Pen - Red",
+      "price": 4.99,
+      "stock": 18,
+      "color": "Red",
+      "type": "Marker",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Hero Kids' Drawing Pen Set",
+      "price": 6.99,
+      "stock": 1,
+      "color": "Assorted",
+      "type": "Drawing",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Hero Refillable Ink Pen",
+      "price": 2.99,
+      "stock": 7,
+      "color": "Blue",
+      "type": "Refillable",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Hero Magnetic Cap Rollerball Pen",
+      "price": 11.49,
+      "stock": 14,
+      "color": "Black",
+      "type": "Rollerball",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Hero Artist's Sketch Pen - Set of 6",
+      "price": 15.99,
+      "stock": 3,
+      "color": "Assorted",
+      "type": "Sketching",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Hero Retro Fountain Pen",
+      "price": 22.49,
+      "stock": 9,
+      "color": "Brown",
+      "type": "Fountain",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Hero Compact Travel Pen",
+      "price": 8.99,
+      "stock": 5,
+      "color": "Blue",
+      "type": "Ballpoint",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Hero Premium Rollerball Pen - Silver",
+      "price": 17.99,
+      "stock": 12,
+      "color": "Silver",
+      "type": "Rollerball",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Hero Dual-Tip Marker Set",
+      "price": 10.99,
+      "stock": 6,
+      "color": "Assorted",
+      "type": "Marker",
+      "image": "pen.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Hero Retractable Ballpoint Pen",
+      "price": 6.49,
+      "stock": 2,
+      "color": "Black",
+      "type": "Ballpoint",
+      "image": "pen.jpg"
+    }
+  ]
+}

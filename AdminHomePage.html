@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Home Page - Pen Management</title>
+    <style>
+      /* Neomorphic design styles with Apple theme */
+      body {
+        font-family: "Helvetica Neue", sans-serif;
+        background-color: #f5f5f7;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        background-color: #333333;
+        color: #ffffff;
+        padding: 10px 20px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .navbar a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-right: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        padding: 20px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1),
+          -10px -10px 30px rgba(255, 255, 255, 0.5);
+      }
+
+      h1 {
+        color: #333333;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1),
+          -5px -5px 15px rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex; /* Added to align image and content */
+        align-items: center; /* Added to align image and content */
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1),
+          -10px -10px 30px rgba(255, 255, 255, 0.5);
+      }
+
+      .card-content {
+        flex-grow: 1; /* Added to allow content to grow */
+        margin-left: 20px; /* Added space between image and content */
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .card-actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .search-input {
+        width: 200px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s ease;
+      }
+
+      .search-input:focus {
+        border-color: #007aff;
+      }
+
+      .filter-select {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .filter-select:hover {
+        background-color: #f9f9f9;
+      }
+
+      .low-stock {
+        color: #ffcc00;
+        font-weight: bold;
+      }
+
+      .in-stock {
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .out-of-stock {
+        color: #ff4444;
+        font-weight: bold;
+      }
+
+      .product-image {
+        max-width: 100px; /* Adjust image width */
+        height: auto;
+        margin-right: 20px; /* Added margin between image and content */
+      }
+
+      /* Styles for improved color scheme */
+      .primary-color {
+        color: #007aff;
+      }
+
+      .secondary-color {
+        color: #ff3b30;
+      }
+
+      .accent-color {
+        color: #4cd964;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div>
+        <a href="AdminHomePage.html">Home</a>
+        <a href="Transactions.html">Transactions</a>
+        <a href="Coupons.html">Coupons</a>
+      </div>
+      <div>
+        <a href="Login.html" class="primary-color">Logout</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Admin Home Page - Pen Management</h1>
+
+      <div class="card-actions">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search by name..."
+        />
+        <select id="sortSelect" class="filter-select">
+          <option value="price-low">Sort by Price (Low to High)</option>
+          <option value="price-high">Sort by Price (High to Low)</option>
+          <option value="quantity-low">Sort by Quantity (Low to High)</option>
+          <option value="quantity-high">Sort by Quantity (High to Low)</option>
+        </select>
+      </div>
+
+      <div class="grid-container" id="penGrid">
+        <!-- Pen cards will be dynamically generated here -->
+      </div>
+    </div>
+
+    <script>
+      fetch("products.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const pensData = data.pens;
+          generatePenCards(pensData);
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const penGrid = document.getElementById("penGrid");
+        generatePenCards(pensData); // Initial generation
+
+        // Event listener for sorting select
+        document
+          .getElementById("sortSelect")
+          .addEventListener("change", function () {
+            const sortBy = this.value;
+            sortPens(sortBy, penGrid);
+          });
+      });
+
+      // Function to generate pen cards
+      function generatePenCards(pens) {
+        penGrid.innerHTML = "";
+
+        pens.forEach((pen) => {
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          // Create image element
+          const image = document.createElement("img");
+          image.src = pen.image;
+          image.alt = pen.name;
+          image.classList.add("product-image");
+          card.appendChild(image);
+
+          const cardContent = document.createElement("div");
+          cardContent.classList.add("card-content");
+
+          const header = document.createElement("div");
+          header.classList.add("card-header");
+          header.innerHTML = `
+      <h3>${pen.name}</h3>
+      <span class="${
+        pen.stock === 0
+          ? "out-of-stock"
+          : pen.stock < 5
+          ? "low-stock"
+          : "in-stock"
+      }">
+        ${
+          pen.stock === 0
+            ? "Out of Stock"
+            : pen.stock < 5
+            ? "Low Stock"
+            : "In Stock"
+        }
+      </span>
+    `;
+          cardContent.appendChild(header);
+
+          const priceInput = document.createElement("input");
+          priceInput.type = "number";
+          priceInput.min = 0;
+          priceInput.step = 0.01;
+          priceInput.value = pen.price.toFixed(2);
+          priceInput.addEventListener("change", () =>
+            updatePrice(pen.id, parseFloat(priceInput.value))
+          );
+          cardContent.appendChild(priceInput);
+
+          const quantityInput = document.createElement("input");
+          quantityInput.type = "number";
+          quantityInput.min = 0;
+          quantityInput.value = pen.stock;
+          quantityInput.addEventListener("change", () =>
+            updateStock(pen.id, parseInt(quantityInput.value))
+          );
+          cardContent.appendChild(quantityInput);
+
+          card.appendChild(cardContent);
+          penGrid.appendChild(card);
+        });
+      }
+
+      // Function to sort pens based on selected option
+      function sortPens(sortBy, penGrid) {
+        pensData.sort((a, b) => {
+          switch (sortBy) {
+            case "price-low":
+              return a.price - b.price;
+            case "price-high":
+              return b.price - a.price;
+            case "quantity-low":
+              return a.stock - b.stock;
+            case "quantity-high":
+              return b.stock - a.stock;
+            default:
+              // Default sorting (no sorting)
+              return 0;
+          }
+        });
+
+        penGrid.innerHTML = "";
+        generatePenCards(pensData);
+      }
+
+      // Function to update price
+      function updatePrice(id, price) {
+        const pen = pensData.find((p) => p.id === id);
+        if (pen) {
+          pen.price = price;
+        }
+      }
+
+      // Function to update stock
+      function updateStock(id, stock) {
+        const pen = pensData.find((p) => p.id === id);
+        if (pen) {
+          pen.stock = stock;
+          const quantityInput = document.querySelector(
+            `#pen-${id} input[type="number"]`
+          );
+          if (quantityInput) {
+            quantityInput.value = pen.stock;
+            quantityInput.dispatchEvent(new Event("change"));
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "coupons": [
+    {
+      "couponId": 1,
+      "couponName": "SAVE10",
+      "discountPercentage": 10,
+      "expirationDate": "2024-05-15"
+    },
+    {
+      "couponId": 2,
+      "couponName": "SUMMER15",
+      "discountPercentage": 15,
+      "expirationDate": "2024-06-30"
+    },
+    {
+      "couponId": 3,
+      "couponName": "JULY20",
+      "discountPercentage": 20,
+      "expirationDate": "2024-07-31"
+    },
+    {
+      "couponId": 4,
+      "couponName": "AUG25OFF",
+      "discountPercentage": 25,
+      "expirationDate": "2024-08-15"
+    },
+    {
+      "couponId": 5,
+      "couponName": "FALL30",
+      "discountPercentage": 30,
+      "expirationDate": "2024-09-30"
+    },
+    {
+      "couponId": 6,
+      "couponName": "OCTSAVE10",
+      "discountPercentage": 10,
+      "expirationDate": "2024-10-31"
+    },
+    {
+      "couponId": 7,
+      "couponName": "NOVEMBER15",
+      "discountPercentage": 15,
+      "expirationDate": "2024-11-15"
+    },
+    {
+      "couponId": 8,
+      "couponName": "YEAREND20",
+      "discountPercentage": 20,
+      "expirationDate": "2024-12-31"
+    },
+    {
+      "couponId": 9,
+      "couponName": "WINTER25OFF",
+      "discountPercentage": 25,
+      "expirationDate": "2025-01-15"
+    },
+    {
+      "couponId": 10,
+      "couponName": "FEBSALE30",
+      "discountPercentage": 30,
+      "expirationDate": "2025-02-28"
+    }
+  ]
+}
